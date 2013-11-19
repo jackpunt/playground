@@ -1,0 +1,18 @@
+# PyCharm
+/.idea/
+
+# Eclispe with pydev
+/.project
+/.pydevproject
+
+# Testacular
+/test_out/
+/.chrome-test/
+/.chrome-e2e/
+/.chrome-app/
+
+# compiled Python files
+*.pyc
+
+# Google API Python Client library
+/api-python-client/

@@ -1,0 +1,454 @@
+HTML, BODY {
+}
+
+BODY {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+A:hover {
+  text-decoration: none;
+  /* fix ng-click anchor link cursor */
+  cursor: pointer;
+}
+
+IFRAME {
+  display: block;
+}
+
+.context-menu {
+  position: absolute;
+  margin-left: -2em;
+  margin-top: -.5em;
+  z-index: 1000;
+  padding: .5em;
+  background-color: #e9e9e9;
+}
+
+  .context-menu DIV:hover {
+    cursor: pointer;
+    background-color: #c5d7ef;
+  }
+
+TABLE {
+  border: 1px solid #c5d7ef;
+  border-collapse: collapse;
+  empty-cells: show;
+  margin: 1em .5em .5em 1em;
+}
+
+  TR {
+    border: 1px solid #c5d7ef;
+  }
+
+  TR.even {
+    background-color: #e9e9e9;
+  }
+
+  TH {
+    background-color: #c5d7ef;
+  }
+
+  TH, TD {
+    padding: 0px;
+    margin: 0px;
+    text-align: left;
+    padding: .35em 1em .25em .35em;
+  }
+
+.experimental {
+  color: #f00;
+  top: -0.9em;
+  position: relative;
+}
+
+.topbar {
+  position: absolute;
+  right: 0em;
+  top: 0em;
+}
+
+  .topbar DIV {
+    display: inline-block;
+  }
+
+  .topbar SPAN {
+    margin: 0.4em;
+  }
+
+.filestatus {
+  color: #ccc;
+  margin: 0em 2em;
+  min-height: 2em;
+}
+
+.logo {
+  font-size: 2em;
+  font-weight: bold;
+  color: #000 !important;
+  text-decoration: none;
+}
+
+  .logo .app-back {
+    color: #ddd;
+    font-size: 0.9em;
+    vertical-align: top;
+  }
+
+  .logo:hover .app-back {
+    color: #555;
+  }
+
+.space-above {
+  margin-top: 2em;
+}
+
+#navheader {
+  color: #aaa;
+}
+
+.current-file-path {
+  font-weight: bold;
+  color: #777;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+#nav {
+  width: 200px;
+  height: 100%;
+  float: left;
+}
+
+  #nav #filelist {
+    border-top: 1px solid #aaa;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: show;
+  }
+
+    #nav #filelist .fileentry {
+      margin: 2px 0px 0px;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    #nav #filelist .fileentry.selected {
+      background-color: #ddf;
+    }
+
+    #nav #filelist .fileentry:hover {
+      background-color: #ccf;
+    }
+
+      #nav #filelist .fileentry .filename , #nav #navheader .project_name {
+        display: inline-block;
+        width: 160px;
+        overflow: hidden;
+        white-space: nowrap;
+        line-height: normal;
+      }
+
+      #nav #filelist .fileentry.selected .filename {
+        font-weight: bold;
+      }
+
+  #nav .dropdown {
+    text-align: right;
+    width: 20px;
+    display: inline-block;
+  }
+
+    #nav .dropdown A {
+      color: #555;
+    }
+
+    #nav .dropdown A:hover {
+      color: #00c;
+      background-color: #cce;
+    }
+
+.runlink {
+  display: inline-block;
+}
+
+.newthing {
+  color: #bbb;
+}
+
+.project_row {
+ vertical-align: top;
+}
+
+.project_name {
+  font-weight: bold;
+  width: 20em;
+}
+
+.project_description {
+  width: 30em;
+  white-space: pre-wrap;
+}
+
+.template {
+  padding-bottom: 0.4em;
+}
+  .template_name {
+    font-weight: bold;
+    width: 30em;
+  }
+
+  .template_description {
+    width: 30em;
+  }
+
+#container {
+  position: relative;
+  height: auto;
+  min-height: 100%;
+}
+
+  #header {
+    border-bottom: 1px solid #ccc;
+    /* developers-logo.png is 200px x 48px */
+    background: 7px 7px no-repeat url(/playground/img/developers-logo.png);
+    padding-left: 215px;
+    line-height: 67px;
+    height: 67px;
+  }
+
+  #main {
+    /* bottom padding should be at least footer height */
+    padding: 0em 1em 4em;
+  }
+  .iframed #main {
+    padding: 0px;
+  }
+
+  #footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid #ccc;
+    padding: 1em 0em 0.5em;
+  }
+
+.diag {
+  color: #ccc;
+  display: inline-block;
+}
+
+.adminlinks {
+  color: #999;
+  display: inline-block;
+  float: right;
+}
+
+  .adminlinks > SPAN {
+    margin: 0.4em;
+  }
+
+.admin {
+  color: gray;
+}
+
+BUTTON.admin > I[class^="icon-"],
+BUTTON.admin > I[class*=" icon-"] {
+  opacity: 0.3 !important;
+}
+
+#source-container {
+  /* compact, for low-res laptop presentations */
+  height: 165px;
+}
+
+.iframed #source-container {
+  height: 200px;
+}
+
+  #source-container .source-code {
+    background-color: #f8fafc;
+    height: 100%;
+  }
+
+  #source-container IMG {
+    background: url(/playground/img/checker.png) repeat;
+    display: block;
+    border: 3px dotted #444;
+  }
+
+.CodeMirror {
+  border: 1px solid #ccc;
+  height: 100%;
+  line-height: 1.25em;
+}
+
+  .CodeMirror-scroll {
+    height: 100%;
+  }
+
+.control-iframe {
+  width: 100%;
+  height: 1em;
+  border: none;
+}
+
+#output-iframe {
+  width: 100%;
+  height: 17em;
+}
+
+  #output-iframe > * {
+    width: 100%;
+    height: 100%;
+    /* prevent horizontal scrolling due to 1px border */
+    margin: -2px;
+    border: 1px solid #ccc;
+  }
+
+#drag-div {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  position: absolute;
+  z-index: 2147483647;
+}
+
+.hidden {
+  display: none;
+}
+
+.dirtymarker {
+  opacity: 0.3;
+}
+
+.ghost {
+  opacity: 0.5;
+}
+
+.alert-pre DIV {
+  white-space: pre-wrap;
+}
+
+.alert-no-margin {
+  margin: 0px;
+}
+
+.loading {
+  font-size: 1.5em;
+  line-height: 2em;
+  color: #888;
+}
+
+.form-reduced-margin {
+  margin-bottom: 2px;
+}
+
+.alert-reduced-margin {
+  margin-bottom: 2px;
+}
+
+.btn-height {
+  height: 27px;
+}
+
+.btn.pull-left {
+  margin-right: 5px;
+}
+
+.btn.pull-right {
+  margin-left: 5px;
+}
+
+.template_container {
+  width: 80%;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  vertical-align: text-bottom;
+}
+
+.form-inline {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+/* enable flexbox layout */
+.form-inline.url-container {
+  display: -moz-box;      /* OLD: Firefox (buggy) */ 
+  display: box;           /* OLD */
+  display: -ms-flexbox;   /* MID: IE 10 */
+  display: -webkit-flex;  /* NEW, Chrome 21+ */
+  display: flex;          /* NEW: Opera 12.1, Firefox 22+ */
+}
+
+.url-bar {
+ -webkit-flex: 1 1 auto;
+ -ms-flex: 1 1 auto;
+ box-flex: 1;
+ flex: 1 1 auto;
+ width: 90%;
+}
+
+.url-button {
+  height: 30px;  /* same as URL input bar */
+}
+
+.login-button {
+  margin-right: 15px;
+}
+
+.ae-logs {
+  font-family: monospace;
+  font-size: 0.9em;
+  line-height: 1.5em;
+  max-height: 20em;
+  overflow: hidden;
+}
+
+.ae-logs-timestamp {
+}
+
+.ae-logs-message {
+}
+
+.ae-logs-severity {
+  width: 1.2em;
+  line-height: 1.2em;
+  border-radius: 2px;
+  text-align: center;
+  font-weight: bold;
+  display: inline-block;
+}
+  .ae-logs-severity-DEBUG {
+    background-color: #09f;
+  }
+  .ae-logs-severity-INFO {
+    background-color: #3c0;
+  }
+  .ae-logs-severity-WARNING {
+    background-color: #fd0;
+  }
+  .ae-logs-severity-ERROR {
+    background-color: #f90;
+  }
+  .ae-logs-severity-CRITICAL {
+    background-color: #f22;
+  }
+
+.pg-resizer {
+  cursor: move;
+  background-color: #eee;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding: 1px 0 2px;
+  margin: 0px 0 10px;
+}
+  .pg-resizer:hover {
+    background-color: #ddd;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }

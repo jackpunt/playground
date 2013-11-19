@@ -1,0 +1,5 @@
+{
+  "template_name" : "Guestbook - NoSQL",
+  "template_description" : "Simple Jinja2 based guestbook using App Engine's Cloud Datastore",
+  "open_files": ["helloworld.py"]
+}

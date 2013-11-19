@@ -1,0 +1,46 @@
+handlers:
+- url: /playground/js
+  static_dir: app/js
+  secure: always
+  mime_type: text/javascript; charset=utf-8
+
+- url: /playground/css
+  static_dir: app/css
+  secure: always
+  mime_type: text/css; charset=utf-8
+
+- url: /playground/img
+  static_dir: app/img
+  secure: always
+
+# Do not be over inclusive
+- url: /playground/(([-_a-z0-9]*)\.html)
+  static_files: app/\1
+  upload: app/.*\.html
+  secure: always
+  mime_type: text/html; charset=utf-8
+
+- url: (/playground/?|/playground/p/[^/]*/?)?
+  static_files: app/index.html
+  upload: app/index.html
+  secure: always
+  mime_type: text/html; charset=utf-8
+
+- url: /playground/p/.*/check_expiration
+  script: __pg.playground.internal_app
+  secure: always
+  login: admin
+
+- url: /playground/.*
+  script: __pg.playground.app
+  secure: always
+
+- url: /_ah/warmup
+  script: __pg.playground.app
+  secure: always
+  login: admin
+
+- url: /_ah/start
+  script: __pg.playground.app
+  secure: always
+  login: admin

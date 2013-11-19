@@ -1,0 +1,15 @@
+queue:
+- name: repo
+  # github rate limit
+  rate: 5000/h
+  #max_concurrent_requests: 1
+  retry_parameters:
+    min_backoff_seconds: 60
+    max_backoff_seconds: 7200 # 2 hours
+    task_age_limit: 2d
+
+- name: expiration
+  rate: 500/s
+
+- name: fixit
+  rate: 500/s

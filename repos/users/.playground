@@ -1,0 +1,5 @@
+{
+  "template_name" : "Users API",
+  "template_description" : "Google Account based authentication",
+  "open_files": ["helloworld.py"]
+}

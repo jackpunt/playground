@@ -1,0 +1,49 @@
+handlers:
+- url: /_ah/mimic/version_id
+  # The version id handler should probably just be split off into its own
+  # script. This handler doesn't require user login because client apps will
+  # want to know if this is a mimic and its version.
+  script: mimic.control_app
+  secure: always
+
+# allow file retrieval
+- url: /_ah/mimic/file
+  script: __pg.intercept.control_app
+  secure: always
+
+# allow file deletion
+- url: /_ah/mimic/delete
+  script: __pg.intercept.control_app
+  secure: always
+
+# allow directory listing
+- url: /_ah/mimic/dir
+  script: __pg.intercept.control_app
+  secure: always
+
+# allow file rename
+- url: /_ah/mimic/move
+  script: __pg.intercept.control_app
+  secure: always
+
+# allow log handler
+- url: /_ah/mimic/log
+  script: __pg.intercept.control_app
+  secure: always
+
+# block other mimic control requests
+- url: /_ah/mimic/.*
+  script: __pg.deny.deny_app
+  secure: always
+
+# script handler for everything else / user code
+- url: /.*
+  script: __pg.intercept.user_app
+  # This script handler must either not require login, or require admin login
+  # (via 'login: admin'). Do not specify 'login: required' since offline
+  # requests (Cron, Task Queue, etc.) will fail with this error:
+  #   Request failed because URL requires user login. For requests invoked
+  #   within App Engine (offline requests like Task Queue, or webhooks like XMPP
+  #   and Incoming Mail), the URL must require admin login (or no login)
+  login: admin
+  secure: always

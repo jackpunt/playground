@@ -1,0 +1,6 @@
+handlers:
+- url: /iframed
+  static_files: app/iframed.html
+  upload: app/iframed\.html
+  secure: always
+  mime_type: text/html; charset=utf-8

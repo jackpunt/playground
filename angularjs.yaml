@@ -1,0 +1,6 @@
+handlers:
+- url: /playground/lib/angular/((angular|angular-route).js)
+  static_files: app/lib/angular/\1
+  upload: app/lib/angular/(angular|angular-route).js
+  secure: always
+  mime_type: text/javascript; charset=utf-8

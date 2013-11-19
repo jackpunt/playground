@@ -1,0 +1,140 @@
+application: psychic-nuisance-298
+#application: gcp-samples
+version: playground
+runtime: python27
+api_version: 1
+# Mimic target environment is not yet threadsafe
+threadsafe: false
+
+includes:
+- angularjs.yaml
+- angular-ui.yaml
+- ui-bootstrap.yaml
+- bootstrap.yaml
+- codemirror.yaml
+- fixit.yaml
+- internal.yaml
+- playground.yaml
+- iframed.yaml
+- tasks.yaml
+- intercept.yaml
+
+# https://developers.google.com/appengine/docs/python/config/appconfig#Builtin_Handlers
+builtins:
+#- appstats: on
+- deferred: on
+- remote_api: on
+
+# Currently supported inbound services are documented by
+# https://developers.google.com/appengine/docs/python/config/appconfig#Inbound_Services
+inbound_services:
+- channel_presence
+- mail
+- xmpp_message
+- xmpp_presence
+- xmpp_subscribe
+- warmup
+
+# Currently supported libraries are documented by
+# https://developers.google.com/appengine/docs/python/tools/libraries27
+# Keep in sync with target_info.py library validation code.
+libraries:
+- name: django
+  version: latest
+- name: endpoints
+  version: latest
+- name: jinja2
+  version: latest
+- name: lxml
+  version: latest
+- name: markupsafe
+  version: latest
+- name: matplotlib
+  version: latest
+- name: MySQLdb
+  version: latest
+- name: numpy
+  version: latest
+- name: PIL
+  version: latest
+- name: protorpc
+  version: latest
+- name: PyAMF
+  version: latest
+- name: pycrypto
+  version: latest
+- name: setuptools
+  version: latest
+- name: ssl
+  version: latest
+- name: webapp2
+  version: latest
+- name: webob
+  version: latest
+- name: yaml
+  version: latest
+
+# https://developers.google.com/appengine/docs/python/config/appconfig#Skipping_Files
+skip_files:
+# built-in defaults
+# don't skip yaml files from template projects in 'repos/' dir
+##- ^(.*/)?app\.yaml
+##- ^(.*/)?app\.yml
+##- ^(.*/)?index\.yaml
+##- ^(.*/)?index\.yml
+- ^(.*/)?#.*#
+- ^(.*/)?.*~
+- ^(.*/)?.*\.py[co]
+- ^(.*/)?.*/RCS/.*
+# don't skip .playground files
+#- ^(.*/)?\..*
+- ^(.*/)?.*\.bak$
+# dot files we do want to skip
+- ^(.*/)?.bin
+- ^(.*/)?.chrome-*
+- ^(.*/)?.git.*
+- ^(.*/)?.idea
+- ^(.*/)?.jshintrc
+- ^(.*/)?.name
+- ^(.*/)?.travis.yml
+
+pagespeed:
+  enabled_rewriters:
+
+  # HTML Rewriters
+  - ProxyCss  # enabled by default
+  - ProxyImages  # enabled by default
+  - ProxyJs  # enabled by default
+  - ConvertMetaTags  # enabled by default
+  - InlineCss  # enabled by default
+  - InlineJs
+  - InlineImages
+  - InlinePreviewImages  # enabled by default
+  - CollapseWhitespace
+  - CombineHeads
+  - ElideAttributes
+  - RemoveComments
+  - RemoveQuotes
+  - LeftTrimUrls
+
+  # CSS Rewriters
+  - CombineCss  # enabled by default
+  - MoveCssToHead  # enabled by default
+  - MinifyCss
+
+  # Image Rewriters
+  - WebpOptimization  # enabled by default
+  - ImageConvertToJpeg  # enabled by default
+  - ImageRecompressJpeg  # enabled by default
+  - ImageProgressiveJpeg  # enabled by default
+  - ImageRecompressPng  # enabled by default
+  - ImageStripMetadata  # enabled by default
+  - ImageStripColorProfile  # enabled by default
+  - ImageResize  # enabled by default
+  - LazyloadImages  # enabled by default
+  - ImageAddDimensions
+
+  # JavaScript Rewriters
+  - CombineJs  # enabled by default
+  - JsOptimize  # enabled by default
+  - DeferJs
